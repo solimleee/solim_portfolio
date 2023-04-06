@@ -1,13 +1,20 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+'use client';
 
-const inter = Inter({ subsets: ['latin'] })
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+
+import styles from './page.module.css';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from 'styles/theme';
+import MyInfo from 'component/MyInfo';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <ThemeProvider theme={theme}>
+      <MainContainer>
+        <MyInfo />
+
+        {/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>
@@ -85,7 +92,14 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
-    </main>
-  )
+      </div> */}
+      </MainContainer>
+    </ThemeProvider>
+  );
 }
+
+const MainContainer = styled.div`
+  /* border: 3px solid red; */
+  background-color: white;
+  height: 100vh;
+`;
