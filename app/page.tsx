@@ -1,13 +1,46 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+/* eslint-disable @next/next/no-script-component-in-head */
+/* eslint-disable @next/next/no-document-import-in-page */
+'use client';
 
-const inter = Inter({ subsets: ['latin'] })
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+
+import styles from './page.module.css';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from 'styles/theme';
+import MyInfo from 'component/MyInfo';
+import * as gtag from '../lib/gtag';
+import Script from 'next/script';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Head from 'next/head';
 
 export default function Home() {
+  const router = useRouter();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-S2LXH6YMYC"
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-S2LXH6YMYC', {
+            page_path: window.location.pathname
+          })`,
+        }}
+      />
+      <ThemeProvider theme={theme}>
+        <MainContainer>
+          <MyInfo />
+
+          {/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>
@@ -85,7 +118,15 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
-    </main>
-  )
+      </div> */}
+        </MainContainer>
+      </ThemeProvider>
+    </>
+  );
 }
+
+const MainContainer = styled.div`
+  /* border: 3px solid red; */
+  background-color: white;
+  height: 100vh;
+`;
