@@ -5,19 +5,27 @@ import { theme } from 'styles/theme';
 interface TextProps {
   title: string;
   description: string;
-  type?: 'mail' | '';
+  type?: 'mail' | 'sms';
 }
 
 function MyInfo() {
   const TextWrap = ({ title, description, type }: TextProps) => {
+    const descriptionType = () => {
+      switch (type) {
+        case 'mail':
+          return <a href={`${description}`}>{description.slice(7)}</a>;
+        case 'sms':
+          return <a href={`${description}`}>{description.slice(4)}</a>;
+        default:
+          return <p>{description}</p>;
+          break;
+      }
+    };
+
     return (
       <TextWrapContainer>
         <h2>{title}</h2>
-        {type === 'mail' ? (
-          <a href={`${description}`}>{description.slice(7)}</a>
-        ) : (
-          <p>{description}</p>
-        )}
+        {descriptionType()}
       </TextWrapContainer>
     );
   };
@@ -41,36 +49,33 @@ function MyInfo() {
               description="mailto:newsolim5616@gmail.com"
               type="mail"
             />
+            <TextWrap
+              title="Phone."
+              description="sms:010-5616-1581"
+              type="sms"
+            />
+            {/* <a href="sms:010-5616-1581">tell:010-5616-1581</a> */}
           </div>
           <div className="contact_wrap">
             <h1>Skill.</h1>
             <TextWrap
               title="Deploy."
-              description="AWS, Firebase, Vercel, Wordpress"
+              description="AWS(Amplify, S3, ec2), Firebase, Vercel"
             />
-            <TextWrap title="Language." description="Typescript, Javascript" />
+            <TextWrap
+              title="Language."
+              description="Typescript, Javascript, Styled-Component"
+            />
+            <TextWrap
+              title="Library / Framework"
+              description="Next.js, React, Node.js"
+            />
+            <TextWrap
+              title="Tool"
+              description="Git, Github, Gitlab, Bitbucket, Wordpress, Jira, Figma"
+            />
           </div>
         </div>
-        {/* <div>
-          <div className="contact_wrap">
-            <h1>Contact.</h1>
-            <TextWrap>
-              <h2>Email. </h2>
-              <a href="mailto:newsolim5616@gmail.com">newsolim5616@gmail.com</a>
-            </TextWrap>
-          </div>
-          <div className="contact_wrap">
-            <h1>Skill.</h1>
-            <TextWrap>
-              <h2>Language. </h2>
-              <p>Typescript, JavaScript</p>
-            </TextWrap>
-            <TextWrap>
-              <h2>Deploy. </h2>
-              <p>Typescript, JavaScript</p>
-            </TextWrap>
-          </div>
-        </div> */}
       </InnerWrap>
     </MainContainer>
   );
@@ -102,8 +107,12 @@ const MainContainer = styled.div`
     margin: 0px 0px 15px 0px;
     border-left: 7px solid ${theme.color.blue};
 
-    @media (max-width: 780px) {
+    @media (max-width: 360px) {
       width: auto;
+    }
+
+    @media (min-width: 360px) and (max-width: 780px) {
+      width: 300px;
     }
 
     h2 {
@@ -163,9 +172,8 @@ const TextWrapContainer = styled.div`
 
   h2 {
     padding: 2px;
-    font-size: 0.9em;
-
-    width: 70px;
+    font-size: 0.85em;
+    width: 75px;
   }
   a {
     padding: 2px;

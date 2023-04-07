@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-script-component-in-head */
+/* eslint-disable @next/next/no-document-import-in-page */
 'use client';
 
 import Image from 'next/image';
@@ -7,14 +9,38 @@ import styles from './page.module.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
 import MyInfo from 'component/MyInfo';
+import * as gtag from '../lib/gtag';
+import Script from 'next/script';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Head from 'next/head';
 
 export default function Home() {
-  return (
-    <ThemeProvider theme={theme}>
-      <MainContainer>
-        <MyInfo />
+  const router = useRouter();
 
-        {/* <div className={styles.description}>
+  return (
+    <>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-S2LXH6YMYC"
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-S2LXH6YMYC', {
+            page_path: window.location.pathname
+          })`,
+        }}
+      />
+      <ThemeProvider theme={theme}>
+        <MainContainer>
+          <MyInfo />
+
+          {/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>
@@ -93,8 +119,9 @@ export default function Home() {
           </p>
         </a>
       </div> */}
-      </MainContainer>
-    </ThemeProvider>
+        </MainContainer>
+      </ThemeProvider>
+    </>
   );
 }
 
