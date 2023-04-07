@@ -4,7 +4,7 @@
 
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-
+import ReactGA, { ga } from 'react-ga';
 import styles from './page.module.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
@@ -13,6 +13,7 @@ import * as gtag from '../lib/gtag';
 import Script from 'next/script';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 export default function Home() {
   const router = useRouter();

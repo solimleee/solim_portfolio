@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en">
+      <html lang="en" className={inter.className}>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-S2LXH6YMYC"
