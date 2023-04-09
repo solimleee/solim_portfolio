@@ -4,7 +4,7 @@
 import styled, { ThemeProvider } from 'styled-components';
 import './globals.css';
 import StyledComponentsRegistry from 'lib/registry';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto, Noto_Sans_KR } from 'next/font/google';
 import { theme } from 'styles/theme';
 import Script from 'next/script';
 import Head from 'next/head';
@@ -12,7 +12,28 @@ import Head from 'next/head';
 // export const metadata = {
 // title: '이소림-포트폴리오',
 // };
-const inter = Inter({ subsets: ['latin'] });
+
+// const homemadeApple = Roboto({
+//   subsets: ['latin'],
+//   weight: '200 300',
+//   display: 'swap',
+// });
+
+const notoSansKr = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  display: 'swap',
+  fallback: [
+    // 디자이너분과 상의한 폴백 폰트 넣으시면 됩니다
+    '-apple-system',
+    'Malgun Gothic',
+    'Apple SD Gothic Neo',
+    // 'Roboto',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'sans-serif',
+  ],
+});
 
 export default function RootLayout({
   children,
@@ -21,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en" className={inter.className}>
+      <html lang="en" className={notoSansKr.className}>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-S2LXH6YMYC"
@@ -52,9 +73,18 @@ export default function RootLayout({
 
 const Body = styled.body`
   background-color: white;
+  width: 100%;
+  margin: auto auto;
+  border: 1px solid red;
 
-  @media (min-width: 780px) {
-    max-width: 600px;
+  @media (min-width: 1024px) {
+    max-width: 60%;
+    border: 1px solid blue;
+    margin: auto auto;
+  }
+  @media (min-width: 1920px) {
+    max-width: 40%;
+    border: 1px solid green;
     margin: auto auto;
   }
 `;

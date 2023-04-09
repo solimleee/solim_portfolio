@@ -34,16 +34,16 @@ function MyInfo() {
     <MainContainer>
       <div className="text_wrap">
         <div className="inner_text_wrap">
-          <h1>이소림</h1>
-          <h2>(Solim Lee)</h2>
+          <h3>이소림</h3>
+          <h4>(Solim Lee)</h4>
         </div>
         <p>Last updated: 2023.04.06</p>
       </div>
       <InnerWrap>
         <Image src={'/profile.jpg'} alt="" width="220" height="220" />
-        <div>
-          <div className="contact_wrap">
-            <h1>Contact.</h1>
+        <div className="contact_box">
+          <div className="contact_wrap" style={{ paddingBottom: '10px' }}>
+            <h4>Contact.</h4>
             <TextWrap
               title="Email."
               description="mailto:newsolim5616@gmail.com"
@@ -54,10 +54,9 @@ function MyInfo() {
               description="sms:010-5616-1581"
               type="sms"
             />
-            {/* <a href="sms:010-5616-1581">tell:010-5616-1581</a> */}
           </div>
           <div className="contact_wrap">
-            <h1>Skill.</h1>
+            <h4>Skill.</h4>
             <TextWrap
               title="Deploy."
               description="AWS(Amplify, S3, ec2), Firebase, Vercel"
@@ -85,16 +84,20 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   margin: auto auto;
   padding-top: 100px;
 
-  img {
-    border-radius: 50%;
+  @media (max-width: 1024px) {
+    width: fit-content;
   }
 
-  @media (max-width: 780px) {
-    align-items: center;
+  img {
+    margin: auto auto;
+    border-radius: 50%;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 30px;
+    }
   }
 
   .text_wrap {
@@ -107,24 +110,17 @@ const MainContainer = styled.div`
     margin: 0px 0px 15px 0px;
     border-left: 7px solid ${theme.color.blue};
 
-    @media (max-width: 360px) {
-      width: auto;
-    }
-
-    @media (min-width: 360px) and (max-width: 780px) {
-      width: 300px;
-    }
-
     h2 {
       padding-left: 5px;
     }
 
     p {
       font-style: italic;
-      font-size: small;
+      font-weight: 300;
+      font-size: 0.5em;
       color: ${theme.color.gray97};
 
-      @media (max-width: 780px) {
+      @media (max-width: 1024px) {
         display: none;
       }
     }
@@ -132,36 +128,42 @@ const MainContainer = styled.div`
 
   .inner_text_wrap {
     display: flex;
-    align-items: flex-end;
-  }
+    align-items: baseline;
 
-  /* @media (max-width: 360px) {
-    border: 3px solid red;
+    h3 {
+      font-size: 2.25em;
+    }
+    h4 {
+      padding-left: 3px;
+      font-size: 1.25em;
+    }
   }
-  @media (min-width: 360px) and (max-width: 800px) {
-    border: 3px solid blue;
-  } 
- @media (min-width: 1400px) {
-    border: 3px solid green;
-  } */
 `;
 
 const InnerWrap = styled.div`
   display: flex;
+  width: 100%;
+  padding-top: 30px;
 
-  @media (max-width: 780px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
-    align-items: center;
   }
 
-  .contact_wrap {
+  .contact_box {
     width: 100%;
-    margin: 0px 0px 10px 30px;
 
-    h1 {
+    @media (min-width: 1024px) {
+      padding-left: 20px;
+    }
+  }
+  .contact_wrap {
+    /* width: 100%; */
+
+    h4 {
       padding: 10px 0px 5px 0px;
       color: ${theme.color.blue};
-      font-size: large;
+      font-size: 1.25em;
+      font-weight: 600;
     }
   }
 `;
@@ -171,20 +173,23 @@ const TextWrapContainer = styled.div`
   align-items: flex-end;
 
   h2 {
+    width: 75px;
+    margin-right: 5px;
     padding: 2px;
     font-size: 0.85em;
-    width: 75px;
+    font-weight: 500;
   }
   a {
     padding: 2px;
     color: ${theme.color.gray97};
-    font-size: 0.8em;
+    font-size: 0.75em;
     text-decoration: underline;
   }
   p {
     padding: 2px;
     color: ${theme.color.gray97};
-    font-size: 0.8em;
+    font-size: 0.75em;
+    word-break: break-word;
   }
 `;
 

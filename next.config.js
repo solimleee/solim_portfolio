@@ -7,6 +7,9 @@ const nextConfig = {
     domains: ['media.tenor.com'],
   },
   experimental: {
+    fontLoaders: [
+      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+    ],
     appDir: true,
   },
 };
