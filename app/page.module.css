@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
+
   min-height: 100vh;
 }
 
@@ -35,7 +36,7 @@
 }
 
 .code {
-  font-weight: 700;
+  /* font-weight: 700; */
   font-family: var(--font-mono);
 }
 
@@ -60,7 +61,7 @@
 }
 
 .card h2 {
-  font-weight: 600;
+  /* font-weight: 600; */
   margin-bottom: 0.7rem;
 }
 
@@ -119,7 +120,7 @@
   margin-left: 16px;
   transform: translateZ(0);
   border-radius: var(--border-radius);
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0px 2px 8px -1px #0000001a;
 }
 

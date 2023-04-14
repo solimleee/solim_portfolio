@@ -3,8 +3,9 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
-      main: string;
-      main_hover: string;
+      main_text: string;
+      sub_text: string;
+      base_text: string;
       main_pressed: string;
       white: string;
       black: string;
@@ -17,11 +18,6 @@ declare module 'styled-components' {
       grayA9: string;
       grayEA: string;
       gray97: string;
-    };
-    effect: {
-      gradient: string;
-      img_gradient: string;
-      shadow: string;
     };
   }
 }
