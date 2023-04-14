@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
 interface TextProps {
   title: string;
   description: string;
-  type?: 'mail' | 'sms';
+  type?: 'mail' | 'sms' | 'git';
 }
 
 function MyInfo() {
@@ -16,6 +17,8 @@ function MyInfo() {
           return <a href={`${description}`}>{description.slice(7)}</a>;
         case 'sms':
           return <a href={`${description}`}>{description.slice(4)}</a>;
+        case 'git':
+          return <a href={`${description}`}>{description}</a>;
         default:
           return <p>{description}</p>;
           break;
@@ -34,25 +37,30 @@ function MyInfo() {
     <MainContainer>
       <div className="text_wrap">
         <div className="inner_text_wrap">
-          <h3>이소림</h3>
+          <h3 id="movie_info">이소림</h3>
           <h4>(Solim Lee)</h4>
         </div>
         <p>Last updated: 2023.04.06</p>
       </div>
       <InnerWrap>
-        <Image src={'/profile.jpg'} alt="" width="220" height="220" />
+        <Image src={'/IMG_7466.jpg'} alt="" width="220" height="220" />
         <div className="contact_box">
           <div className="contact_wrap" style={{ paddingBottom: '10px' }}>
             <h4>Contact.</h4>
+            <TextWrap
+              title="Phone."
+              description="sms:010-5616-1581"
+              type="sms"
+            />
             <TextWrap
               title="Email."
               description="mailto:newsolim5616@gmail.com"
               type="mail"
             />
             <TextWrap
-              title="Phone."
-              description="sms:010-5616-1581"
-              type="sms"
+              title="github."
+              description="https://github.com/solimleee"
+              type="git"
             />
           </div>
           <div className="contact_wrap">
@@ -85,19 +93,11 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: auto auto;
-  padding-top: 100px;
-
-  @media (max-width: 1024px) {
-    width: fit-content;
-  }
+  width: inherit;
 
   img {
     margin: auto auto;
     border-radius: 50%;
-
-    @media (max-width: 1024px) {
-      margin-bottom: 30px;
-    }
   }
 
   .text_wrap {
@@ -108,7 +108,7 @@ const MainContainer = styled.div`
     width: 100%;
     padding: 0px 0px 0px 5px;
     margin: 0px 0px 15px 0px;
-    border-left: 7px solid ${theme.color.blue};
+    border-left: 7px solid ${theme.color.main_text};
 
     h2 {
       padding-left: 5px;
@@ -132,17 +132,18 @@ const MainContainer = styled.div`
 
     h3 {
       font-size: 2.25em;
+      font-weight: 600;
     }
     h4 {
       padding-left: 3px;
-      font-size: 1.25em;
+      font-size: 1.5em;
+      font-weight: 500;
     }
   }
 `;
 
 const InnerWrap = styled.div`
   display: flex;
-  width: 100%;
   padding-top: 30px;
 
   @media (max-width: 1024px) {
@@ -151,45 +152,44 @@ const InnerWrap = styled.div`
 
   .contact_box {
     width: 100%;
-
+    padding: 20px 0 0px 0px;
     @media (min-width: 1024px) {
-      padding-left: 20px;
+      padding: 0px 0px 0px 50px;
     }
   }
   .contact_wrap {
-    /* width: 100%; */
-
     h4 {
       padding: 10px 0px 5px 0px;
-      color: ${theme.color.blue};
-      font-size: 1.25em;
+      color: ${theme.color.main_text};
+      font-size: 1.3em;
       font-weight: 600;
     }
   }
 `;
 
 const TextWrapContainer = styled.div`
-  display: flex;
+  display: grid;
   align-items: flex-end;
+  grid-template-columns: 0.1fr 1fr;
 
   h2 {
     width: 75px;
     margin-right: 5px;
     padding: 2px;
-    font-size: 0.85em;
+    font-size: 0.88em;
     font-weight: 500;
   }
   a {
     padding: 2px;
     color: ${theme.color.gray97};
-    font-size: 0.75em;
+    font-size: 0.78em;
     text-decoration: underline;
   }
   p {
     padding: 2px;
     color: ${theme.color.gray97};
-    font-size: 0.75em;
-    word-break: break-word;
+    font-size: 0.78em;
+    word-break: break-all;
   }
 `;
 

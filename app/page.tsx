@@ -1,10 +1,12 @@
 'use client';
-import Script from 'next/script';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
 import MyInfo from 'component/MyInfo';
 import Intro from 'component/Intro';
+import Experience from 'component/Experience';
+import Career from 'component/Career';
+import SubExperience from 'component/SubExperience';
 
 export default function Home() {
   return (
@@ -31,6 +33,12 @@ export default function Home() {
           <MyInfo />
           <Divider />
           <Intro />
+          <Divider />
+          <Career />
+          <Divider />
+          <Experience />
+          <Divider />
+          <SubExperience />
         </MainContainer>
       </ThemeProvider>
     </>
@@ -38,12 +46,17 @@ export default function Home() {
 }
 
 const MainContainer = styled.div`
-  background-color: white;
-  height: 100vh;
+  height: 100%;
+  padding-top: 85px;
+  margin: auto auto;
+
+  @media (max-width: 1024px) {
+    width: fit-content;
+  }
 `;
 
 const Divider = styled.div`
-  background-color: ${theme.color.grayDC};
-  margin: 42px 0px;
   height: 1px;
+  margin: 42px 0px;
+  background-color: ${theme.color.grayDC};
 `;

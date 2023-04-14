@@ -1,38 +1,22 @@
-/* eslint-disable @next/next/no-script-component-in-head */
 'use client';
 
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import './globals.css';
 import StyledComponentsRegistry from 'lib/registry';
-import { Inter, Roboto, Noto_Sans_KR } from 'next/font/google';
-import { theme } from 'styles/theme';
-import Script from 'next/script';
+import { Roboto } from 'next/font/google';
 import Head from 'next/head';
 
-// export const metadata = {
-// title: '이소림-포트폴리오',
-// };
+import Header from 'component/common/Header';
 
-// const homemadeApple = Roboto({
-//   subsets: ['latin'],
-//   weight: '200 300',
-//   display: 'swap',
-// });
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 const notoSansKr = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
   display: 'swap',
-  fallback: [
-    // 디자이너분과 상의한 폴백 폰트 넣으시면 됩니다
-    '-apple-system',
-    'Malgun Gothic',
-    'Apple SD Gothic Neo',
-    // 'Roboto',
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'sans-serif',
-  ],
 });
 
 export default function RootLayout({
@@ -41,11 +25,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <html lang="en" className={notoSansKr.className}>
-        <Script
+    <html lang="en" className={notoSansKr.className}>
+      <Head>
+        <head>
+          <title>layout</title>
+        </head>
+        {/* <Script
+          defer
+          src="https://developers.kakao.com/sdk/js/kakao.min.js"
+        ></Script> */}
+      </Head>
+      {/* <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-S2LXH6YMYC"
+          src="https://www.googletagmanager.com/gtag/js?id="
         />
         <Script
           id="gtag-init"
@@ -55,36 +47,51 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-S2LXH6YMYC', {
+          gtag('config', '', {
             page_path: window.location.pathname
           })`,
           }}
-        />
-
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <Body>{children}</Body>
-          </ThemeProvider>
-        </StyledComponentsRegistry>
-      </html>
-    </>
+        /> */}
+      <StyledComponentsRegistry>
+        <Body>
+          <Header />
+          {children}
+        </Body>
+      </StyledComponentsRegistry>
+    </html>
   );
 }
 
 const Body = styled.body`
-  background-color: white;
   width: 100%;
+  height: 100%;
   margin: auto auto;
-  border: 1px solid red;
+  padding: 0px 25px;
 
   @media (min-width: 1024px) {
     max-width: 60%;
-    border: 1px solid blue;
-    margin: auto auto;
+    padding: 0px 60px;
   }
+
   @media (min-width: 1920px) {
-    max-width: 40%;
-    border: 1px solid green;
-    margin: auto auto;
+    max-width: 800px;
+    padding: 0px 96px;
   }
 `;
+
+// const Header = styled.div`
+//   display: flex;
+//   position: fixed;
+//   align-items: center;
+//   justify-content: space-between;
+//   left: 0;
+
+//   width: 100%;
+//   height: 50px;
+//   padding: 0 10px;
+
+//   background-color: white;
+//   box-shadow: 0px 2px 5px ${theme.color.grayDC};
+
+//   font-weight: 600;
+// `;
