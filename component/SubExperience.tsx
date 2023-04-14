@@ -13,7 +13,7 @@ export default function SubExperience() {
         title="Withpuppy"
         title_routing="withpuppy"
         simple_desc="🐾 인플루언서 기반의 E-커머스 플랫폼 구축"
-        period="2022.08 ~ 2022.11"
+        period="2021.11.23 ~ 2021.12.21"
         position={[
           '클라이언트사 기획팀 2명',
           '자사 기획팀 3명, 백엔드 개발자 1명, 프론트엔드 개발자 3명, 어플리케이션 개발자 1명',

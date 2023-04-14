@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 import IcClose from 'public/close_icon.svg';
 import IcMenu from 'public/menu_icon.svg';
-import IcMoon from 'public/moon.png';
-import IcSun from 'public/sun.png';
+// import IcMoon from 'public/moon.png';
+// import IcSun from 'public/sun.png';
 import { theme } from 'styles/theme';
 import Link from 'next/link';
 import { useScrollEvent } from 'hook/useScrollEvent';
