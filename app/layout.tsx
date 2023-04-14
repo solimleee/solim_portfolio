@@ -74,7 +74,7 @@ const Body = styled.body`
   }
 
   @media (min-width: 1920px) {
-    max-width: 800px;
+    max-width: 1200px;
     padding: 0px 96px;
   }
 `;

@@ -1,18 +1,18 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useScrollEvent = () => {
-  const [hide, setHide] = useState(false);
   const [data, setData] = useState({
     y: 0,
+    lastY: 0,
   });
-  const documentRef = useRef(document);
 
   const handleScroll = () => {
     setData((last) => {
       return {
         y: window.scrollY,
+        lastY: last.y,
       };
     });
   };

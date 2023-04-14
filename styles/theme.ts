@@ -1,17 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 import { DefaultTheme } from 'styled-components';
-/* 
-[JANINE][220705]
-- 색상 추가 시, 같은 계열이면 이름+hex color 앞 두자리로 생성
-  -> ex) gray72, graDC
-- 색상 추가 후 styled.d.ts파일 내에 타입 선언해주어야 함
-*/
+
+// [color theme][230414]
+// - 색상 추가 시, 같은 계열이면 이름+hex color 앞 두자리로 생성
+//   -> ex) gray72, graDC
+// - 색상 추가 후 styled.d.ts파일 내에 default 타입 선언
 
 const theme: DefaultTheme = {
   color: {
-    main_text: '#4871FF',
-    sub_text: '#88A3FF',
-    base_text: '#AAB5DA',
+    main_text: '#F34E35',
+    sub_text: '#F78574',
+    base_text: '#FABDB4',
     main_pressed: '#FFF7F2',
     white: '#ffffff',
     black: '#000000',

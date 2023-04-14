@@ -117,7 +117,7 @@ const MainContainer = styled.div`
     p {
       font-style: italic;
       font-weight: 300;
-      font-size: 0.5em;
+      font-size: 0.7em;
       color: ${theme.color.gray97};
 
       @media (max-width: 1024px) {

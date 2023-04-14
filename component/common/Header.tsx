@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import Image from 'next/image';
@@ -8,14 +8,32 @@ import IcMenu from 'public/menu_icon.svg';
 import IcMoon from 'public/moon.png';
 import IcSun from 'public/sun.png';
 import { theme } from 'styles/theme';
+import Link from 'next/link';
+import { useScrollEvent } from 'hook/useScrollEvent';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState<any>(false);
   const [theme, setTheme] = useState<any>(false);
+  const scroll = useScrollEvent();
+  const [navClassList, setNavClassList] = useState<'hidden' | 'visible'>(
+    'visible',
+  );
+
+  const handleGNBHidden = () => {
+    if (scroll.y < scroll.lastY) {
+      setNavClassList('visible');
+    } else if (scroll.y > 70) {
+      setNavClassList('hidden');
+    }
+  };
+
+  useEffect(() => {
+    handleGNBHidden();
+  }, [scroll.y]);
 
   return (
-    <MainContainer>
-      👩🏻‍💻 Dev Solim
+    <MainContainer ishidden={navClassList}>
+      <Link href="/">👩🏻‍💻 Dev Solim</Link>
       <Image
         src={IcMenu}
         alt=""
@@ -57,7 +75,7 @@ function Header() {
 
 export default Header;
 
-const MainContainer = styled.div`
+const MainContainer = styled.div<{ ishidden: any }>`
   display: flex;
   position: fixed;
   align-items: center;
@@ -70,8 +88,13 @@ const MainContainer = styled.div`
 
   background-color: ${theme.color.white};
   box-shadow: 0px 2px 5px ${theme.color.grayDC};
+  visibility: ${(props) => props.ishidden};
 
-  font-weight: 600;
+  a {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+  }
 `;
 
 const ModalContainer = styled.div<{ themes: any }>`

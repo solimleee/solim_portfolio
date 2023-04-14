@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   nextScriptWorkers: true,
   swcMinify: true,
+  compiler: { styledComponents: true },
   images: {
     domains: ['media.tenor.com'],
   },
