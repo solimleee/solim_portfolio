@@ -9,6 +9,7 @@ import IcMenu from 'public/menu_icon.svg';
 // import IcSun from 'public/sun.png';
 import { theme } from 'styles/theme';
 import Link from 'next/link';
+
 import { useScrollEvent } from 'hook/useScrollEvent';
 
 function Header() {
@@ -30,6 +31,18 @@ function Header() {
   useEffect(() => {
     handleGNBHidden();
   }, [scroll.y]);
+
+  const copyURL = () => {
+    let currentUrl = window.document.location.href;
+    let t = document.createElement('textarea');
+    document.body.appendChild(t);
+    t.value = currentUrl;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+
+    alert('링크가 복사되었습니다.');
+  };
 
   return (
     <MainContainer ishidden={navClassList}>
@@ -58,6 +71,12 @@ function Header() {
                   height="32"
                 />
               </div> */}
+              <div onClick={() => copyURL()}>링크 복사</div>
+              <div>
+                <a href="/solim_resume.pdf" download>
+                  <button>이미지 원본 다운로드</button>
+                </a>
+              </div>
               <Image
                 src={IcClose}
                 alt=""

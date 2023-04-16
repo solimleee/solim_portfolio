@@ -18,6 +18,8 @@ const GridComponent = ({ title, children }: InfoProps) => {
 export const DetailMainContainer = styled.div`
   margin: auto auto;
   padding-top: 85px;
+  line-height: 1.6;
+
   .title {
     padding: 10px 0px;
     font-size: 2.25em;
@@ -35,10 +37,10 @@ const GridContainer = styled.div`
   padding: 10px 0px;
   h4 {
     padding: 5px 0px;
+    font-size: 1.05rem;
     font-weight: 600;
   }
   h5 {
-    padding: 5px 0px;
     font-size: 1rem;
     font-weight: 400;
   }
@@ -46,9 +48,12 @@ const GridContainer = styled.div`
     width: 100%;
     height: 100%;
   }
-  li,
-  .img_list {
-    padding: 3px 0px;
+
+  img,
+  .list_text {
+    font-size: 0.9em;
+    padding: 3px 0 3px 16px;
+    color: ${theme.color.gray72};
   }
 `;
 

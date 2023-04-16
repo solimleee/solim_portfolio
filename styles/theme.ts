@@ -8,9 +8,9 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   color: {
-    main_text: '#F34E35',
-    sub_text: '#F78574',
-    base_text: '#FABDB4',
+    main_text: '#2CAB02',
+    sub_text: '#56C133',
+    base_text: '#87D66E',
     main_pressed: '#FFF7F2',
     white: '#ffffff',
     black: '#000000',
