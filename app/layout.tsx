@@ -40,8 +40,9 @@ export default function RootLayout({
         <Body>
           <Header />
           {children}
-        </Body>{' '}
-        <Footer />
+          <Footer />
+        </Body>
+        {/* <Footer /> */}
       </StyledComponentsRegistry>
     </html>
   );

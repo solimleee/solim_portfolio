@@ -115,7 +115,7 @@ function page() {
           </div>
         </div>
       </GridComponent>
-      <GridComponent title="🌳 성장 경험">dlrjgkdslf</GridComponent>
+      {/* <GridComponent title="🌳 성장 경험">dlrjgkdslf</GridComponent> */}
     </DetailMainContainer>
   );
 }

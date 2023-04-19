@@ -138,9 +138,11 @@ const ModalContainer = styled.div`
   top: 0;
   width: 100vw;
   height: 100vh;
+
   .be_modal {
     width: 20%;
     background-color: rgba(102, 102, 102, 0.5);
+
     @media (min-width: 1024px) {
       width: 70%;
     }

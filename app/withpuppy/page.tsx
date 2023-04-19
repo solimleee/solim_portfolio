@@ -37,7 +37,11 @@ function page() {
         <li>Discord</li>
       </GridComponent>
       <GridComponent title="👩🏻‍💻 구현 기능 (본인 참여 기여도가 70%이상인 기능만 나열하였습니다.)">
-        <div className="img_list">1. 프로젝트 아이디어 제안 및 구성</div>
+        <div className="img_list">
+          1. 프로젝트 아이디어 제안 및 구성
+          {/* <Image src="/withpuppy/figma.png" alt="" width="800" height="600" /> */}
+        </div>
+
         <div className="img_list">
           2. 아키텍처 다이어그래밍 설계
           <div className="list_text">
@@ -54,8 +58,8 @@ function page() {
           <Image
             src="/withpuppy/figma_withpuppy.png"
             alt=""
-            width="800"
-            height="600"
+            width="900"
+            height="700"
           />
         </div>
         <div className="img_list">4. 반응형 레이아웃 구현</div>
@@ -76,7 +80,7 @@ function page() {
         <p>해당 프로젝트 종료 후 팀원분들이 작성해주신 피드백과 후기입니다. </p>
         <Image
           style={{ maxHeight: '600px', maxWidth: '400px' }}
-          src="/codestate_evaluation.jpg"
+          src="/withpuppy/codestate_evaluation.jpg"
           alt=""
           width="350"
           height="350"
