@@ -37,10 +37,10 @@ function ExpSection({
       <GridContainer>
         <div className="type">팀 프로젝트</div>
         <div>
-          {position.map((e: any, idx: number) => {
+          {position.map((info: any, idx: number) => {
             return (
               <div key={idx}>
-                <li>{e}</li>
+                <li>{info}</li>
               </div>
             );
           })}
@@ -57,10 +57,10 @@ function ExpSection({
       <GridContainer>
         <div className="type">구현 기능</div>
         <div>
-          {feature.map((e: any, idx: number) => {
+          {feature.map((skill: any, idx: number) => {
             return (
               <div key={idx}>
-                <li>{e}</li>
+                <li>{skill}</li>
               </div>
             );
           })}
@@ -77,40 +77,34 @@ const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    cursor: pointer;
     @media (min-width: 1024px) {
       flex-direction: row;
       align-items: flex-end;
     }
-
-    cursor: pointer;
   }
   .title {
     font-size: 1.6rem;
     font-weight: 500;
-
     a {
-      color: ${theme.color.main_text};
-      text-decoration-color: ${theme.color.main_text};
+      color: ${theme.color.accent};
+      text-decoration-color: ${theme.color.accent};
     }
   }
-
   .url {
     padding-bottom: 2.7px;
     font-size: 0.9rem;
     font-weight: 400;
+    a {
+      color: ${theme.color.base};
+    }
     @media (min-width: 1024px) {
       margin-left: 1.3rem;
     }
-    a {
-      color: ${theme.color.base_text};
-    }
   }
-
   .simple_desc {
     padding: 10px 0px 15px 0px;
   }
-
   :last-child {
     margin-bottom: none;
   }

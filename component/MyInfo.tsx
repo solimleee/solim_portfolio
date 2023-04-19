@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
@@ -40,10 +39,15 @@ function MyInfo() {
           <h3 id="movie_info">이소림</h3>
           <h4>(Solim Lee)</h4>
         </div>
-        <p>Last updated: 2023.04.06</p>
+        <p>Last updated: 2023.04.18</p>
       </div>
       <InnerWrap>
-        <Image src={'/IMG_7466.jpg'} alt="" width="220" height="220" />
+        <Image
+          src={'/common/profile_img.jpg'}
+          alt=""
+          width="220"
+          height="220"
+        />
         <div className="contact_box">
           <div className="contact_wrap" style={{ paddingBottom: '10px' }}>
             <h4>Contact.</h4>
@@ -79,7 +83,7 @@ function MyInfo() {
             />
             <TextWrap
               title="Tool"
-              description="Git, Github, Gitlab, Bitbucket, Wordpress, Jira, Figma"
+              description="Git, Github, GitLab, Bitbucket, Jira, Figma"
             />
           </div>
         </div>
@@ -108,7 +112,7 @@ const MainContainer = styled.div`
     width: 100%;
     padding: 0px 0px 0px 5px;
     margin: 0px 0px 15px 0px;
-    border-left: 7px solid ${theme.color.main_text};
+    border-left: 7px solid ${theme.color.accent};
 
     h2 {
       padding-left: 5px;
@@ -117,7 +121,7 @@ const MainContainer = styled.div`
     p {
       font-style: italic;
       font-weight: 300;
-      font-size: 0.5em;
+      font-size: 0.7em;
       color: ${theme.color.gray97};
 
       @media (max-width: 1024px) {
@@ -160,7 +164,7 @@ const InnerWrap = styled.div`
   .contact_wrap {
     h4 {
       padding: 10px 0px 5px 0px;
-      color: ${theme.color.main_text};
+      color: ${theme.color.accent};
       font-size: 1.3em;
       font-weight: 600;
     }

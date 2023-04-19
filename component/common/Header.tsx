@@ -1,53 +1,104 @@
-import { useState } from 'react';
-
-import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-
-import IcClose from 'public/close_icon.svg';
-import IcMenu from 'public/menu_icon.svg';
-import IcMoon from 'public/moon.png';
-import IcSun from 'public/sun.png';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import styled from 'styled-components';
 import { theme } from 'styles/theme';
+import { useScrollEvent } from 'hook/useScrollEvent';
+import { header_list } from 'model/headerlist';
 
 function Header() {
+  const pathname = usePathname();
+  const scroll = useScrollEvent();
   const [menuOpen, setMenuOpen] = useState<any>(false);
-  const [theme, setTheme] = useState<any>(false);
+  const [navClassList, setNavClassList] = useState<'hidden' | 'visible'>(
+    'visible',
+  );
+
+  useEffect(() => {
+    if (scroll.y < scroll.lastY) {
+      setNavClassList('visible');
+    } else if (scroll.y > 70) {
+      setNavClassList('hidden');
+    }
+  }, [scroll.lastY, scroll.y]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+  }, [menuOpen]);
+
+  const copyURL = () => {
+    let currentUrl = window.document.location.href;
+    let t = document.createElement('textarea');
+    document.body.appendChild(t);
+    t.value = currentUrl;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+
+    alert('링크가 복사되었습니다.');
+  };
 
   return (
-    <MainContainer>
-      👩🏻‍💻 Dev Solim
+    <MainContainer ishidden={navClassList}>
+      <Link href="/">👩🏻‍💻 Dev Solim</Link>
       <Image
-        src={IcMenu}
+        src={'/common/menu_icon.svg'}
         alt=""
         width="32"
         height="32"
         onClick={() => setMenuOpen(!menuOpen)}
       />
       {menuOpen && (
-        <ModalContainer themes={theme}>
+        <ModalContainer>
           <div className="be_modal" onClick={() => setMenuOpen(false)} />
           <div className="fe_modal">
             <div className="fe_header">
-              {/* <div className="toggle">
-                <Image
-                  onClick={() => {
-                    setTheme(!theme);
-                  }}
-                  style={{ animation: 'rotation 10s infinite linear' }}
-                  src={theme ? IcMoon : IcSun}
-                  alt=""
-                  width="32"
-                  height="32"
-                />
-              </div> */}
+              <div className="row_wrap">
+                <div className="icon_section" onClick={() => copyURL()}>
+                  <Image
+                    src="/common/link_icon.svg"
+                    alt=""
+                    width="25"
+                    height="25"
+                  />
+                  링크 복사
+                </div>
+                <a className="icon_section" href="/solim_resume.pdf" download>
+                  <Image
+                    src="/common/download_icon.svg"
+                    alt=""
+                    width="25"
+                    height="25"
+                  />
+                  이력서 다운로드
+                </a>
+              </div>
               <Image
-                src={IcClose}
+                src={'/common/close_icon.svg'}
                 alt=""
                 width="32"
                 height="32"
                 onClick={() => setMenuOpen(false)}
               />
             </div>
+            {header_list.map((list: any, idx: number) => {
+              return (
+                <RouteContainer
+                  route={pathname}
+                  url={list.href}
+                  key={idx}
+                  href={list.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {list.link_text}
+                </RouteContainer>
+              );
+            })}
           </div>
         </ModalContainer>
       )}
@@ -57,7 +108,7 @@ function Header() {
 
 export default Header;
 
-const MainContainer = styled.div`
+const MainContainer = styled.div<{ ishidden: any }>`
   display: flex;
   position: fixed;
   align-items: center;
@@ -70,11 +121,16 @@ const MainContainer = styled.div`
 
   background-color: ${theme.color.white};
   box-shadow: 0px 2px 5px ${theme.color.grayDC};
+  visibility: ${(props) => props.ishidden};
 
-  font-weight: 600;
+  a {
+    color: ${theme.color.black};
+    font-weight: 500;
+    text-decoration: none;
+  }
 `;
 
-const ModalContainer = styled.div<{ themes: any }>`
+const ModalContainer = styled.div`
   display: flex;
   position: absolute;
   justify-content: flex-end;
@@ -82,36 +138,19 @@ const ModalContainer = styled.div<{ themes: any }>`
   top: 0;
   width: 100vw;
   height: 100vh;
-
-  .toggle {
-    border: 1px solid red;
-    width: 100px;
-    height: 60%;
-
-    img {
-      position: relative;
-      right: 0%;
-      border: ${(props) =>
-        props.themes === false ? '3px solid red' : '3px solid blue'};
-      margin-left: ${(props) => (props.themes === false ? '50px' : '0px')};
-    }
-  }
-
   .be_modal {
     width: 20%;
     background-color: rgba(102, 102, 102, 0.5);
-
     @media (min-width: 1024px) {
       width: 70%;
     }
   }
-
   .fe_modal {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     width: 80%;
     background-color: white;
-
     @media (min-width: 1024px) {
       width: 30%;
     }
@@ -119,19 +158,38 @@ const ModalContainer = styled.div<{ themes: any }>`
   .fe_header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 55px;
-
-    justify-content: flex-end;
     padding: 0 10px;
     box-shadow: 0px 2px 5px ${theme.color.grayDC};
   }
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
+  .row_wrap {
+    display: flex;
+  }
+  .icon_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7em;
+    font-weight: 400;
+    :first-child {
+      margin-right: 10px;
     }
-    to {
-      transform: rotate(359deg);
-    }
+  }
+`;
+
+const RouteContainer = styled(Link)<{ route: any; url: any }>`
+  padding: 12px 0px 10px 15px;
+  font-size: 1.3rem;
+  color: ${(props) =>
+    props.route === props.url
+      ? theme.color.accent
+      : theme.color.gray97} !important;
+  :hover {
+    color: ${theme.color.accent} !important;
+  }
+  :first-of-type {
+    padding: 30px 0px 10px 15px;
   }
 `;
