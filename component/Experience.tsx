@@ -37,9 +37,11 @@ function Experience() {
         ]}
         stack="React, Typescript, Redux, Recoil, React-Query, styled-component"
         feature={[
-          '모바일 웹 뷰를 기준으로 메인 랜딩페이지, 상세 플레이스, 투어 액티비티, 프로모션 페이지 프론트 개발',
-          '검색페이지 구현 및 localStorage를 활용한 최근검색어 기능 개발',
-          '실제 운영중인 서비스를 고려하여 중복 컴포넌트 제거에 주력 및 코드 재사용성을 고려한 컴포넌트 모듈화 작업',
+          '뷰포트별 반응형 웹, 레이아웃(Header, Footer) 개발 및 디자인 일관성을 위한 공통 컴포넌트 제작',
+          '랜딩 페이지 스크롤 이벤트 구현 및 프론트 개발',
+          '검색 페이지 프론트 개발 및 질문 검색 기능 구현',
+          '기존 레거시 코드 삭제 후 코드 리팩토링 작업',
+          'Firebase를 사용하여 홈페이지 내부 관리자 페이지 및 입점 문의 페이지 개발',
         ]}
       />
       <ExpSection
@@ -54,9 +56,9 @@ function Experience() {
         stack="AWS(Amplify, S3), React, Typescript, Redux, Recoil, React-Query, styled-component"
         feature={[
           'AWS Amplify를 활용하여 프로젝트 배포',
-          ' 메인 랜딩페이지, 상품 상세 페이지 프론트 개발 및 데이터 연동 ',
-          '상품 상세 페이지에서 구매페이지까지 플로우 연결 ',
-          'AWS Amplify를 활용하여 프로젝트 배포',
+          '반응형 레이아웃 개발',
+          '메인 랜딩페이지, 상품 상세 페이지 프론트 개발 및 데이터 연동 ',
+          '상품 상세 페이지에서 구매 페이지까지 플로우 연결 ',
           '비밀번호 찾기 및 회원가입 페이지 개발',
           'react-recoil로 셀러정보를 전역 상태로 받아와 셀러 심사신청 페이지 개발',
           '마이페이지(셀러) 정보 수정 페이지 개발',

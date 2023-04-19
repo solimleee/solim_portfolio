@@ -89,21 +89,13 @@ function page() {
             이미지 사진같은 경우에는 AWS S3를 사용하여 bucket안에 이미지를
             저장하는 방식으로 구현하였습니다.
           </div>
-          <div className="grid_container">
-            {/* <Image src="/jlim/1.png" alt="" width="350" height="200" />
-            <Image src="/jlim/2.png" alt="" width="350" height="200" />
-            <Image src="/jlim/3.png" alt="" width="350" height="200" />
-            <Image src="/jlim/4.png" alt="" width="350" height="200" />
-            <Image src="/jlim/5.png" alt="" width="350" height="200" />
-            <Image src="/jlim/6.png" alt="" width="350" height="200" /> */}
-          </div>
         </div>
         <div className="img_list">
           3. 셀로 마이페이지 정보 수정 기능 및 프론트 개발
           <Image src="/jlim/seller.gif" alt="" width="350" height="200" />
         </div>
       </GridComponent>
-      <GridComponent title="🌳 성장 경험">dlrjgkdslf</GridComponent>
+      {/* <GridComponent title="🌳 성장 경험">dlrjgkdslf</GridComponent> */}
     </DetailMainContainer>
   );
 }
