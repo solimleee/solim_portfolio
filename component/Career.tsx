@@ -6,8 +6,8 @@ function Career() {
   return (
     <CommonSection title="Career.">
       <InnerWrap>
-        <div>(주)아시모프</div>
-        <div>2022.03.02 ~ 2023.03.31</div>
+        <div>(주) 아시모프</div>
+        <div>2022.03.02 ~ 2023.03.31 (1년 1개월)</div>
       </InnerWrap>
       <div style={{ paddingTop: '15px' }}>
         회사는 역동적인 분위기와 소통을 중시하며 Javascript 기반의 React
@@ -23,4 +23,5 @@ const InnerWrap = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 export default Career;

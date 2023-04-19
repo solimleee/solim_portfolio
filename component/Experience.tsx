@@ -1,7 +1,4 @@
 'use client';
-
-import styled from 'styled-components';
-import { theme } from 'styles/theme';
 import CommonSection from './common/CommonSection';
 import ExpSection from './common/ExpSection';
 
@@ -33,7 +30,7 @@ function Experience() {
         title_routing="aaim"
         url="https://www.aaim-project.com/"
         simple_desc="🎧 음악 소셜 플랫폼 Aaim의 브랜드 사이트 개선"
-        period="2022.03 ~ 2022.07"
+        period="2022.11 ~ 2023.02"
         position={[
           '클라이언트사 CEO, 디자인팀 1명, 기획운영팀 2명',
           '자사 프론트엔드 개발자 2명',

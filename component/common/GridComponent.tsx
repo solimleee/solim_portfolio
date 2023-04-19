@@ -15,24 +15,6 @@ const GridComponent = ({ title, children }: InfoProps) => {
   );
 };
 
-export const DetailMainContainer = styled.div`
-  margin: auto auto;
-  padding-top: 85px;
-  line-height: 1.6;
-
-  .title {
-    padding: 10px 0px;
-    font-size: 2.25em;
-    font-weight: 600;
-    color: ${theme.color.main_text};
-  }
-  a {
-    font-weight: 400;
-    color: ${theme.color.gray72};
-    text-decoration-color: ${theme.color.gray72};
-  }
-`;
-
 const GridContainer = styled.div`
   padding: 10px 0px;
   h4 {
@@ -47,13 +29,38 @@ const GridContainer = styled.div`
   img {
     width: 100%;
     height: 100%;
+    padding: 3px 0 3px 16px;
   }
-
-  img,
   .list_text {
     font-size: 0.9em;
     padding: 3px 0 3px 16px;
     color: ${theme.color.gray72};
+  }
+  /* .grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    @media (max-width: 1024) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  } */
+`;
+
+export const DetailMainContainer = styled.div`
+  margin: auto auto;
+  padding: 75px 0px 50px 0px;
+  line-height: 1.6;
+  a {
+    font-weight: 400;
+    color: ${theme.color.gray72};
+    text-decoration-color: ${theme.color.gray72};
+  }
+  .title {
+    padding: 10px 0px;
+    font-size: 2.25em;
+    font-weight: 600;
+    color: ${theme.color.accent};
   }
 `;
 

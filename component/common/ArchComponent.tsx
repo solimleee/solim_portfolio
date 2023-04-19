@@ -10,14 +10,14 @@ function ArchComponent({ fe_list, be_list }: ArchProps) {
     <MainContaienr>
       <div>
         <ul>frontend</ul>
-        {fe_list.map((e: string, idx: number) => {
-          return <li key={idx}>{e}</li>;
+        {fe_list.map((list: string, idx: number) => {
+          return <li key={idx}>{list}</li>;
         })}
       </div>
       <div>
         <ul>backend</ul>
-        {be_list.map((e: string, idx: number) => {
-          return <li key={idx}>{e}</li>;
+        {be_list.map((list: string, idx: number) => {
+          return <li key={idx}>{list}</li>;
         })}
       </div>
     </MainContaienr>

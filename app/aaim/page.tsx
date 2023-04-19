@@ -45,6 +45,7 @@ function page() {
         <li>Bitbucket</li>
         <li>Slack</li>
         <li>Notion</li>
+        <li>Zeplin</li>
         <li>Firebase</li>
         <li>Wordpress</li>
       </GridComponent>
@@ -103,7 +104,7 @@ function page() {
         </div>
         <div className="img_list">
           8. Wordpress를 사용하여 팝업 이미지 데이터 연동 및 프론트 개발
-          <Image src="/aaim/aaim_popup.png" alt="" width="360" height="200" />
+          <Image src="/aaim/aaim_popup.png" alt="" width="500" height="400" />
         </div>
         <div className="img_list">
           9. Firebase를 사용하여 입점문의 페이지 및 관리자 페이지 개발

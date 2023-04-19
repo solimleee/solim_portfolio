@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { DefaultTheme } from 'styled-components';
 
 // [color theme][230414]
@@ -8,10 +7,13 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   color: {
-    main_text: '#2CAB02',
-    sub_text: '#56C133',
-    base_text: '#87D66E',
-    main_pressed: '#FFF7F2',
+    // accent: '#FB6E52',
+    // main: '#FB6E52',
+    // base: '#FCA391',
+    base: '#FDA493',
+    // accent: '#FC6F54',
+    accent: '#FC836C',
+    main: '#FA3914',
     white: '#ffffff',
     black: '#000000',
     red: '#ff0000',

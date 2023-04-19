@@ -1,18 +1,11 @@
 'use client';
-
-import styled from 'styled-components';
-import './globals.css';
-import StyledComponentsRegistry from 'lib/registry';
-import { Roboto } from 'next/font/google';
 import Head from 'next/head';
-
+import { Roboto } from 'next/font/google';
+import styled from 'styled-components';
+import StyledComponentsRegistry from 'lib/registry';
 import Header from 'component/common/Header';
-
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
+import Footer from 'component/common/Footer';
+import './globals.css';
 
 const notoSansKr = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -26,15 +19,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={notoSansKr.className}>
-      <Head>
-        <head>
-          <title>layout</title>
-        </head>
-        {/* <Script
-          defer
-          src="https://developers.kakao.com/sdk/js/kakao.min.js"
-        ></Script> */}
-      </Head>
       {/* <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id="
@@ -56,7 +40,8 @@ export default function RootLayout({
         <Body>
           <Header />
           {children}
-        </Body>
+        </Body>{' '}
+        <Footer />
       </StyledComponentsRegistry>
     </html>
   );
@@ -64,7 +49,8 @@ export default function RootLayout({
 
 const Body = styled.body`
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   margin: auto auto;
   padding: 0px 25px;
 
@@ -78,20 +64,3 @@ const Body = styled.body`
     padding: 0px 96px;
   }
 `;
-
-// const Header = styled.div`
-//   display: flex;
-//   position: fixed;
-//   align-items: center;
-//   justify-content: space-between;
-//   left: 0;
-
-//   width: 100%;
-//   height: 50px;
-//   padding: 0 10px;
-
-//   background-color: white;
-//   box-shadow: 0px 2px 5px ${theme.color.grayDC};
-
-//   font-weight: 600;
-// `;

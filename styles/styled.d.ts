@@ -3,10 +3,9 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
-      main_text: string;
-      sub_text: string;
-      base_text: string;
-      main_pressed: string;
+      accent: string;
+      main: string;
+      base: string;
       white: string;
       black: string;
       red: string;

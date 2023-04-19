@@ -20,10 +20,9 @@ function page() {
         내 위치 기반 중심의 강아지 산책 메이트 매칭 서비스입니다.
         <br />
         2020년도 기준 우리나라 전체 인구 수 중 1530만명이 반려동물과 생활하고
-        있으며 그 중 강아지가 81%를 차지하고 있습니다.
-        <br />
-        점점 발전하는 펫문화에 따라가기 위해서 강아지의 사회성을 기를 수 있는
-        강아지 산책 메이트 서비스를 기획하게 되었습니다.
+        있으며 그 중 강아지가 81%를 차지하고 있습니다. 점점 발전하는 펫문화에
+        따라가기 위해서 강아지의 사회성을 기를 수 있는 강아지 산책 메이트
+        서비스를 기획하게 되었습니다.
       </GridComponent>
       <GridComponent title="🛠️ 기술 스택">
         <ArchComponent
@@ -55,8 +54,8 @@ function page() {
           <Image
             src="/withpuppy/figma_withpuppy.png"
             alt=""
-            width="390"
-            height="300"
+            width="800"
+            height="600"
           />
         </div>
         <div className="img_list">4. 반응형 레이아웃 구현</div>
@@ -76,6 +75,7 @@ function page() {
       <GridComponent title="🌳 성장 경험">
         <p>해당 프로젝트 종료 후 팀원분들이 작성해주신 피드백과 후기입니다. </p>
         <Image
+          style={{ maxHeight: '600px', maxWidth: '400px' }}
           src="/codestate_evaluation.jpg"
           alt=""
           width="350"

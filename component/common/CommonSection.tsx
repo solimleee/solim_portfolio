@@ -19,15 +19,14 @@ const MainContainer = styled.div`
   h3 {
     width: fit-content;
     font-size: 2.25em;
-    color: ${theme.color.main_text};
-    /* border-bottom: 2px solid ${theme.color.main_text}; */
     font-weight: 600;
+    color: ${theme.color.accent};
   }
 
   .children_section {
     padding-top: 20px;
-    font-weight: 400;
     font-size: 1rem;
+    font-weight: 400;
     line-height: 1.6;
   }
 `;
