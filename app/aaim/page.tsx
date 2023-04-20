@@ -87,14 +87,7 @@ function page() {
           </div>
         </div>
         <div className="img_list">
-          7. Wordpress를 사용하여 약관정보 수정 데이터 연동 및 관련 페이지
-          프론트 개발
-          <div className="list_text">
-            클라이언트사의 기획운영팀에서 별도의 비용이나 서버구축없이 텍스트
-            수정 및 페이지 숨김 처리를 할 수 있는 기능이 필요하였습니다. 여러
-            조건을 따져보았을때 웹 호스팅 플랫폼 중 해당 기능은 Wordpress가
-            적합하다고 생각하였습니다.
-          </div>
+          7. 약관정보 수정 데이터 연동 및 관련 페이지 프론트 개발
           <Image
             src="/aaim/aaim-terms-res.gif"
             alt=""
@@ -103,7 +96,7 @@ function page() {
           />
         </div>
         <div className="img_list">
-          8. Wordpress를 사용하여 팝업 이미지 데이터 연동 및 프론트 개발
+          8. 광고 팝업 기능 및 프론트 개발
           <Image src="/aaim/aaim_popup.png" alt="" width="500" height="400" />
         </div>
         <div className="img_list">
@@ -115,7 +108,6 @@ function page() {
           </div>
         </div>
       </GridComponent>
-      {/* <GridComponent title="🌳 성장 경험">dlrjgkdslf</GridComponent> */}
     </DetailMainContainer>
   );
 }
