@@ -52,7 +52,7 @@ function page() {
         </div>
         <div className="img_list">
           2. AWS Amplify를 활용하여 프로젝트 배포
-          <div className="list_text">왜 amplify를 사용함?</div>
+          {/* <div className="list_text">왜 amplify를 사용함?</div> */}
         </div>
         <div className="img_list" style={{ paddingTop: '10px' }}>
           user-web{' '}
