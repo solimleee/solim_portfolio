@@ -39,7 +39,7 @@ function MyInfo() {
           <h3 id="movie_info">이소림</h3>
           <h4>(Solim Lee)</h4>
         </div>
-        <p>Last updated: 2023.04.18</p>
+        <p>Last updated: 2023.05.31</p>
       </div>
       <InnerWrap>
         <Image
