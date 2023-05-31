@@ -68,7 +68,11 @@ function Header() {
                   />
                   링크 복사
                 </div>
-                <a className="icon_section" href="/solim_resume.pdf" download>
+                <a
+                  className="icon_section"
+                  href="/resume/resume_download_img.png"
+                  download
+                >
                   <Image
                     src="/common/download_icon.svg"
                     alt=""
