@@ -13,7 +13,7 @@ const nextConfig = {
     ],
     appDir: true,
     env: {
-      NEXT_PUBLIC_CHANNELIO_PLIGIN_KEY: '29ada575-8bc9-46aa-85cf-66b24d3397b3',
+      CHANNELIO_PLIGIN_KEY: '29ada575-8bc9-46aa-85cf-66b24d3397b3',
     },
   },
 };
