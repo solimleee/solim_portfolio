@@ -59,7 +59,7 @@ export default function RootLayout({
             }
           })();
           ChannelIO('boot', {
-            "pluginKey":  '${process.env.NEXT_PUBLIC_CHANNELIO_PLIGIN_KEY}'
+            "pluginKey": '29ada575-8bc9-46aa-85cf-66b24d3397b3'
           });
           `,
             }}
