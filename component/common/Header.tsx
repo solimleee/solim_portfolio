@@ -68,7 +68,7 @@ function Header() {
                   />
                   링크 복사
                 </div>
-                <a
+                {/* <a
                   className="icon_section"
                   href="/resume/resume_download_img.png"
                   download
@@ -80,7 +80,7 @@ function Header() {
                     height="25"
                   />
                   이력서 다운로드
-                </a>
+                </a> */}
               </div>
               <Image
                 src={'/common/close_icon.svg'}
